@@ -1,0 +1,10 @@
+<header class="header" [ngClass]="{'body-pd': (navService.isExpanded$ | async)}">
+  <div class="header_toggle">
+    <i class='bx'
+       [ngClass]="{'bx-menu': !(navService.isExpanded$ | async), 'bx-x': (navService.isExpanded$ | async)}"
+       (click)="navService.toggleSidebar()"></i>
+  </div>
+  <div class="header_img">
+    <img src="https://i.imgur.com/hczKIze.jpg" alt="profile">
+  </div>
+</header>
