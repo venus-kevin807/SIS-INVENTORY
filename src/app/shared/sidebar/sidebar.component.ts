@@ -19,12 +19,12 @@ export class SidebarComponent {
 
   // Items principales de navegación
   mainNavItems: NavItem[] = [
-    { icon: 'bx-grid-alt', name: 'Dashboard', link: 'dashboard' },
-    { icon: 'bx-cart', name: 'Compras', link: 'compras' },
-    { icon: 'bx-package', name: 'Recibidos', link: 'recibidos' },
-    { icon: 'bx-rotate-left', name: 'Devoluciones', link: 'devoluciones' },
-    { icon: 'bx-box', name: 'Stocks', link: 'stocks' },
-    { icon: 'bx-store', name: 'Ventas', link: 'ventas' }
+    { icon: 'bx-grid-alt', name: 'Dashboard', link: '/dashboard' },
+    { icon: 'bx-cart', name: 'Compras', link: '/dashboard/shopping' },
+    { icon: 'bx-package', name: 'Recibidos', link: '/dashboard/received' },
+    { icon: 'bx-rotate-left', name: 'Devoluciones', link: '/dashboard/returns' },
+    { icon: 'bx-box', name: 'Stocks', link: '/dashboard/stocks' },
+    { icon: 'bx-store', name: 'Ventas', link: '/dashboard/sales' }
   ];
 
   // Items de mantenimiento

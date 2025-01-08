@@ -1,31 +1,30 @@
 <div class="l-navbar" [ngClass]="{'show': (navService.isExpanded$ | async)}">
   <nav class="nav">
     <div>
-      <a href="#" class="nav_logo">
+      <a [routerLink]="['/']" class="nav_logo">
         <i class='bx bx-box nav_logo-icon'></i>
         <span class="nav_logo-name">SIS-INVENTARIOS</span>
       </a>
       <div class="nav_list">
-        <a href="#" *ngFor="let item of mainNavItems"
+        <a *ngFor="let item of mainNavItems"
+           [routerLink]="[item.link]"
            class="nav_link"
-           [ngClass]="{'active': activeLink === item.link}"
+           [routerLinkActive]="'active'"
            (click)="setActiveLink(item.link)">
           <i class='bx {{item.icon}} nav_icon'></i>
           <span class="nav_name">{{item.name}}</span>
         </a>
-
         <!-- Separador con título "Mantenimiento" -->
         <div class="nav_separator">Mantenimiento</div>
 
         <a *ngFor="let item of maintenanceNavItems"
-        [routerLink]="item.link"
-        class="nav_link"
-        [ngClass]="{'active': activeLink === item.link}"
-        (click)="setActiveLink(item.link)">
-       <i class='bx {{item.icon}} nav_icon'></i>
-       <span class="nav_name">{{item.name}}</span>
-     </a>
-
+           [routerLink]="[item.link]"
+           class="nav_link"
+           [routerLinkActive]="'active'"
+           (click)="setActiveLink(item.link)">
+          <i class='bx {{item.icon}} nav_icon'></i>
+          <span class="nav_name">{{item.name}}</span>
+        </a>
       </div>
     </div>
   </nav>

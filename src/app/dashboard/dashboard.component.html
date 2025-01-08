@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<!-- dashboard.component.html -->
+<div class="dashboard-container">
+  <!-- Contenido propio del dashboard -->
+  <ng-container *ngIf="isMainDashboard">
+    <h2>Dashboard Principal</h2>
+    <!-- Aquí va el contenido específico del dashboard -->
+  </ng-container>
+
+  <!-- Router outlet para los componentes hijos -->
+  <router-outlet></router-outlet>
+</div>
