@@ -1,5 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { NavigationService } from '../services/navigation.service';
+import { AuthService } from '../../auth/services/authServices/auth.service';
+import { Router } from '@angular/router';
 
 interface NavItem {
   icon: string;
@@ -15,7 +17,11 @@ interface NavItem {
 export class SidebarComponent {
   activeLink: string = 'dashboard';
 
-  constructor(public navService: NavigationService) {}
+  constructor(
+    public navService: NavigationService,
+    public authService: AuthService,
+    private router: Router
+  ) {}
 
   // Items principales de navegación
   mainNavItems: NavItem[] = [
@@ -54,5 +60,12 @@ export class SidebarComponent {
     if (window.innerWidth < 768) {
       this.navService.collapse();
     }
+  }
+
+  // Método para cerrar sesión
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+    this.navService.collapse();
   }
 }

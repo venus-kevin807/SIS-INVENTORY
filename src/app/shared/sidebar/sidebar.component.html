@@ -1,31 +1,44 @@
 <div class="l-navbar" [ngClass]="{'show': (navService.isExpanded$ | async)}">
   <nav class="nav">
     <div>
-      <a [routerLink]="['/']" class="nav_logo">
+      <!-- Logo -->
+      <a [routerLink]="['/dashboard']" class="nav_logo">
         <i class='bx bx-box nav_logo-icon'></i>
         <span class="nav_logo-name">SIS-INVENTARIOS</span>
       </a>
-      <div class="nav_list">
-        <a *ngFor="let item of mainNavItems"
-           [routerLink]="[item.link]"
-           class="nav_link"
-           [routerLinkActive]="'active'"
-           (click)="setActiveLink(item.link)">
-          <i class='bx {{item.icon}} nav_icon'></i>
-          <span class="nav_name">{{item.name}}</span>
-        </a>
-        <!-- Separador con título "Mantenimiento" -->
-        <div class="nav_separator">Mantenimiento</div>
 
-        <a *ngFor="let item of maintenanceNavItems"
-           [routerLink]="[item.link]"
-           class="nav_link"
-           [routerLinkActive]="'active'"
-           (click)="setActiveLink(item.link)">
-          <i class='bx {{item.icon}} nav_icon'></i>
-          <span class="nav_name">{{item.name}}</span>
-        </a>
-      </div>
-    </div>
+      <div class="nav_list pt-2 ">
+        <a *ngFor="let item of mainNavItems"
+        [routerLink]="[item.link]"
+        class="nav_link"
+        [ngClass]="{'admin': authService.isAdmin()}"
+        [routerLinkActive]="'active'"
+        (click)="setActiveLink(item.link)">
+       <i class='bx {{item.icon}} nav_icon'></i>
+       <span class="nav_name">{{item.name}}</span>
+     </a>
+   </div>
+
+   <!-- Separador y opciones de administrador -->
+   <ng-container *ngIf="authService.isAdmin()">
+     <div class="nav_separator admin">Mantenimiento</div>
+     <a *ngFor="let item of maintenanceNavItems"
+        [routerLink]="[item.link]"
+        class="nav_link"
+        [ngClass]="{'admin': authService.isAdmin()}"
+        [routerLinkActive]="'active'"
+        (click)="setActiveLink(item.link)">
+       <i class='bx {{item.icon}} nav_icon'></i>
+       <span class="nav_name">{{item.name}}</span>
+     </a>
+   </ng-container>
+       <!-- Botón de logout -->
+       <a (click)="logout()" class="nav_link" style="cursor: pointer;">
+        <i class='bx bx-log-out nav_icon'></i>
+        <span class="nav_name">Cerrar Sesión</span>
+      </a>
+ </div>
+
+
   </nav>
 </div>

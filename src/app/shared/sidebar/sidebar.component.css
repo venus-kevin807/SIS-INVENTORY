@@ -1,3 +1,5 @@
+
+
 .l-navbar {
   position: fixed;
   top: 0;
@@ -33,19 +35,19 @@
 }
 .nav_logo-name {
   color: var(--white-color);
-  font-weight: 700;
+  font-weight: 500;
 }
 .nav_link {
   position: relative;
   color: var(--first-color-light);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   transition: .3s;
 }
 .nav_link:hover {
   color: var(--white-color);
 }
 .nav_icon {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 .show {
   left: 0;
@@ -73,8 +75,8 @@
 
 .nav_separator {
   color: var(--first-color-light);
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding: 0.25rem 0 0.25rem 1.5rem; /* Reducido el padding */
   font-size: 0.9rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem; /* Reducido el margen superior */
+  margin-bottom: 0.5rem; /* Reducido el margen inferior */
 }
