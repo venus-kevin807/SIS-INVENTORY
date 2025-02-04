@@ -10,29 +10,28 @@ import { SalesComponent } from './sales/sales.component';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
-    children: [
-      {
-        path: 'shopping',
-        component: ShoppingComponent
-      },
-      {
-        path: 'received',
-        component: ReceivedComponent
-      },
-      {
-        path: 'returns',
-        component: ReturnsComponent
-      },
-      {
-        path: 'stocks',
-        component: StocksComponent
-      },
-      {
-        path: 'sales',
-        component: SalesComponent
-      }
-    ]
+    component: DashboardComponent, // Se muestra solo para `/dashboard`
+    pathMatch: 'full'
+  },
+  {
+    path: 'shopping',
+    component: ShoppingComponent
+  },
+  {
+    path: 'received',
+    component: ReceivedComponent
+  },
+  {
+    path: 'returns',
+    component: ReturnsComponent
+  },
+  {
+    path: 'stocks',
+    component: StocksComponent
+  },
+  {
+    path: 'sales',
+    component: SalesComponent
   }
 ];
 
@@ -40,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}

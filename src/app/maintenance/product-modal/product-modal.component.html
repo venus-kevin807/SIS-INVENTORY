@@ -1,0 +1,42 @@
+<div class="modal" *ngIf="product">
+  <div class="modal-content">
+    <h3>{{ product.id === 0 ? 'Nuevo Producto' : 'Editar Producto' }}</h3>
+    <form>
+      <!-- Campo para el nombre del producto -->
+      <label for="name">Nombre:</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="product.name"
+        name="name"
+        required
+      />
+
+      <!-- Campo para el precio del producto -->
+      <label for="price">Precio:</label>
+      <input
+        type="number"
+        id="price"
+        [(ngModel)]="product.price"
+        name="price"
+        required
+      />
+
+      <!-- Campo para la cantidad del producto -->
+      <label for="amount">Cantidad:</label>
+      <input
+        type="number"
+        id="amount"
+        [(ngModel)]="product.amount"
+        name="amount"
+        required
+      />
+
+      <!-- Botones para guardar o cancelar -->
+      <div class="modal-actions">
+        <button type="button" class="save-button" (click)="onSave()">Guardar</button>
+        <button type="button" class="cancel-button" (click)="onClose()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

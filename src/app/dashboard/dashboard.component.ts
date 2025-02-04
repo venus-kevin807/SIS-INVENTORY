@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+
+interface DashboardItem {
+  title: string;
+  count: number;
+  route: string;
+  icon: string; // Clase del ícono
+  bgColor: string;
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -8,14 +14,16 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  isMainDashboard = false;
+  dashboardItems: DashboardItem[] = [
+    { title: 'Órdenes de Compra', count: 3, route: '/ordenes-compra',icon: 'bx-cart', bgColor: '#007bff' },
+    { title: 'Compras Recibidas', count: 2, route: '/received', icon: 'bx-package', bgColor: '#17a2b8' },
+    { title: 'Devoluciones', count: 1, route: '/returns', icon: 'bx-rotate-left', bgColor: '#ffc107' },
+    { title: 'Ventas', count: 1, route: '/sales', icon: 'bx-money', bgColor: '#343a40' },
+    { title: 'Proveedores', count: 1, route: '/providers', icon: 'bx-group', bgColor: '#fd7e14' }
+  ];
 
-  constructor(private router: Router) {
-    // Detectar cuando estamos en la ruta principal del dashboard
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: any) => {
-      this.isMainDashboard = event.url === '/dashboard' || event.url === '/dashboard/';
-    });
+  navigateTo(route: string) {
+    // Aquí navega a la ruta correspondiente
+    console.log(`Navegando a ${route}`);
   }
 }

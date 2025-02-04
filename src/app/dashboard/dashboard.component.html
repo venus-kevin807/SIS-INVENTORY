@@ -1,11 +1,19 @@
-<!-- dashboard.component.html -->
-<div class="dashboard-container">
-  <!-- Contenido propio del dashboard -->
-  <ng-container *ngIf="isMainDashboard">
-    <h2>Dashboard Principal</h2>
-    <!-- Aquí va el contenido específico del dashboard -->
-  </ng-container>
-
-  <!-- Router outlet para los componentes hijos -->
-  <router-outlet></router-outlet>
+<div class="dashboard">
+  <h1>Sistema web de inventarios</h1>
+  <hr>
+  <div class="cards-container">
+    <div
+      class="card"
+      *ngFor="let item of dashboardItems"
+      (click)="navigateTo(item.route)"
+    >
+      <div class="icon" [ngStyle]="{'background-color': item.bgColor}">
+        <i class="bx {{item.icon}} nav_icon"></i> <!-- Aquí se usa la clase del ícono -->
+      </div>
+      <div class="info">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.count }}</p>
+      </div>
+    </div>
+  </div>
 </div>

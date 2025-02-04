@@ -1,1 +1,38 @@
-<p>providers works!</p>
+<div class="providers-container">
+  <h1>Lista de Proveedores</h1>
+  <button class="new-button" (click)="onAdd()">+ Nuevo</button>
+  <table class="providers-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Fecha Creación</th>
+        <th>Nombre</th>
+        <th>Persona de Contacto</th>
+        <th>Telefono de contacto</th>
+        <th>Estado</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let provider of providers">
+        <td>{{ provider.id }}</td>
+        <td>{{ provider.creationDate }}</td>
+        <td>{{ provider.name }}</td>
+        <td>{{ provider.contactPerson }}</td>
+        <td>{{ provider.phoneContact }}</td>
+        <td>{{ provider.status }}</td>
+        <td>
+          <button class="edit-button mr-5" (click)="onEdit(provider)">Editar</button>
+          <button class="delete-button" (click)="onDelete(provider.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal para agregar/editar proveedores -->
+<app-provider-modal
+  *ngIf="selectedProvider"
+  [provider]="selectedProvider"
+  (save)="onSave($event)"
+></app-provider-modal>

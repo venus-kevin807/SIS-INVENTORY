@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@ionic/angular": "^8.4.1",
     "bootstrap": "^5.3.3",
     "flowbite": "^2.5.2",

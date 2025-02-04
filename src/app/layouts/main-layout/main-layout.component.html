@@ -1,1 +1,10 @@
-<p>main-layout works!</p>
+<header>
+  <app-header></app-header>
+</header>
+
+<main class="flex" >
+  <app-sidebar></app-sidebar>
+  <section class="w-full p-4">
+    <router-outlet></router-outlet>
+  </section>
+</main>

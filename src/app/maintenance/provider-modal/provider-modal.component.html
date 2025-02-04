@@ -1,0 +1,26 @@
+<div class="modal" *ngIf="provider">
+  <div class="modal-content">
+    <h3>{{ provider.id === 0 ? 'Nuevo Proveedor' : 'Editar Proveedor' }}</h3>
+    <form>
+      <label>Nombre:</label>
+      <input type="text" [(ngModel)]="provider.name" name="name" required />
+
+      <label>Persona de Contacto:</label>
+      <input type="text" [(ngModel)]="provider.contactPerson" name="contactPerson" required />
+
+      <label>Telefono de Contacto:</label>
+      <input type="text" [(ngModel)]="provider.phoneContact" name="contactPerson" required />
+      
+      <label>Estado:</label>
+      <select [(ngModel)]="provider.status" name="status">
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+      </select>
+
+      <div class="modal-actions">
+        <button type="button" class="save-button" (click)="onSave()">Guardar</button>
+        <button type="button" class="cancel-button" (click)="onClose()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+.dashboard {
+  text-align: center;
+}
+
+.dashboard h1 {
+  font-size: 25px;
+  padding-bottom: 2px;
+  font-weight: bold;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Aumentado de 200px a 300px */
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.card {
+  background-color: #3d4042;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  border: 1px solid #3d4042;
+  border-radius: 10px;
+  padding: 1.5rem; /* Aumentado de 1rem a 1.5rem */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  min-height: 120px; /* Aumentado de 100px a 120px */
+  width: 100%; /* Asegura que ocupe todo el espacio disponible */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  width: 70px; /* Aumentado de 60px a 70px */
+  height: 70px; /* Aumentado de 60px a 70px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #fff;
+  margin-right: 1.5rem; /* Aumentado de 1rem a 1.5rem */
+  flex-shrink: 0;
+}
+
+.info {
+  text-align: left;
+}
+
+.info h3 {
+  color: white;
+  font-size: 1.3rem; /* Aumentado ligeramente */
+  margin: 0;
+}
+
+.info p {
+  color: white;
+  font-size: 1rem; /* Aumentado ligeramente */
+  position: absolute;
+  bottom: 1.5rem; /* Aumentado de 1rem a 1.5rem */
+  right: 1.5rem; /* Aumentado de 1rem a 1.5rem */
+  margin: 0;
+}
